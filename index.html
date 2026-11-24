@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Presentación personal de David Velz - Desarrollador y estudiante.">
+  <title>David Velz | Presentación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: rgba(30, 41, 59, 0.72);
+      --card-border: rgba(148, 163, 184, 0.18);
+      --text: #e5eefb;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-2: #818cf8;
+      --accent: #22c55e;
+      --shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(129, 140, 248, 0.2), transparent 30%),
+        linear-gradient(180deg, #020617 0%, var(--bg) 45%, #0b1120 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 2rem 0 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.25);
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 5rem 0 3rem;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.25rem;
+    }
+
+    .gradient {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 55%, #c084fc 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 62ch;
+      margin-bottom: 2rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.9rem 1.3rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #08111f;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .btn-primary:hover { box-shadow: 0 16px 36px rgba(56, 189, 248, 0.32); }
+
+    .btn-secondary {
+      background: rgba(148, 163, 184, 0.08);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(148, 163, 184, 0.14);
+      border-color: rgba(148, 163, 184, 0.28);
+    }
+
+    .profile-card {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.72));
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(56,189,248,0.08), transparent 40%, rgba(129,140,248,0.08));
+      pointer-events: none;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #08111f;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      margin-bottom: 1.5rem;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .profile-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .profile-role {
+      color: #7dd3fc;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .profile-list {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .profile-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .profile-list .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(148, 163, 184, 0.1);
+      display: grid;
+      place-items: center;
+      flex: 0 0 32px;
+      font-size: 0.95rem;
+    }
+
+    .profile-list strong { color: var(--text); font-weight: 600; }
+
+    section {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 65ch;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.18);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(56, 189, 248, 0.12);
+      color: #7dd3fc;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill {
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      flex: 0 0 52px;
+    }
+
+    .contact-icon.fb { background: rgba(24, 119, 242, 0.15); color: #60a5fa; }
+    .contact-icon.gh { background: rgba(148, 163, 184, 0.14); color: #e2e8f0; }
+
+    .contact-card h3 { font-size: 1rem; margin-bottom: 0.15rem; }
+    .contact-card p { color: var(--muted); font-size: 0.9rem; word-break: break-word; }
+
+    footer {
+      padding: 3rem 0 2.5rem;
+      color: #64748b;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 3.5rem; }
+      .grid { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      nav { border-radius: 20px; flex-direction: column; gap: 0.75rem; }
+      .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .profile-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <a class="brand" href="#inicio">david<span>velz</span></a>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="inicio">
+      <div>
+        <div class="badge">Disponible para aprender y crear</div>
+        <h1>Hola, soy <span class="gradient">David Velz</span>.</h1>
+        <p class="lead">
+          Estudiante y entusiasta del desarrollo de software. Me gusta aprender nuevas tecnologías,
+          construir proyectos y convertir ideas en experiencias digitales simples y útiles.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/EDavidVC" target="_blank" rel="noopener noreferrer">
+            Ver GitHub
+          </a>
+          <a class="btn btn-secondary" href="https://www.facebook.com/devdavidvelz" target="_blank" rel="noopener noreferrer">
+            Ir a Facebook
+          </a>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Tarjeta de perfil">
+        <div class="avatar">DV</div>
+        <h2>David Velz</h2>
+        <p class="profile-role">Desarrollador en formación</p>
+        <ul class="profile-list">
+          <li>
+            <span class="icon">💻</span>
+            <div><strong>Enfoque:</strong> Desarrollo de software y aprendizaje continuo.</div>
+          </li>
+          <li>
+            <span class="icon">🚀</span>
+            <div><strong>Objetivo:</strong> Crear proyectos útiles y seguir creciendo como desarrollador.</div>
+          </li>
+          <li>
+            <span class="icon">📍</span>
+            <div><strong>Ubicación:</strong> Agrega tu ciudad o país aquí.</div>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="sobre-mi">
+      <h2 class="section-title">Sobre mí</h2>
+      <p class="section-desc">
+        Esta es una página de presentación creada como ejemplo para GitHub Pages. Puedes editar
+        los textos para contar tu historia, tu formación y los proyectos que te representan.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">🎓</div>
+          <h3>Estudiante</h3>
+          <p>
+            En constante formación, explorando conceptos de programación, buenas prácticas y
+            herramientas modernas de desarrollo.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🛠️</div>
+          <h3>Proyectos</h3>
+          <p>
+            Interesado en construir aplicaciones y soluciones prácticas. Puedes destacar aquí tus
+            repositorios o proyectos favoritos.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🌱</div>
+          <h3>Crecimiento</h3>
+          <p>
+            Siempre abierto a aprender, mejorar y asumir nuevos retos que impulsen mi desarrollo
+            personal y profesional.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <h2 class="section-title">Habilidades</h2>
+      <p class="section-desc">
+        Personaliza esta sección con las tecnologías que usas o estás aprendiendo.
+      </p>
+      <div class="skills" aria-label="Lista de habilidades">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Git</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Java</span>
+        <span class="skill">Python</span>
+        <span class="skill">Aprendizaje continuo</span>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-desc">
+        Encuéntrame en mis perfiles o reemplaza estos enlaces por tus canales de contacto preferidos.
+      </p>
+      <div class="contact">
+        <a class="contact-card" href="https://github.com/EDavidVC" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon gh" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="GitHub">
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.73-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 2.89-.39c.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.54-.01 2.79-.01 3.17 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>GitHub</h3>
+            <p>github.com/EDavidVC</p>
+          </div>
+        </a>
+
+        <a class="contact-card" href="https://www.facebook.com/devdavidvelz" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon fb" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Facebook">
+              <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Facebook</h3>
+            <p>facebook.com/devdavidvelz</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>© 2026 David Velz · Hecho para publicar en <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</p>
+  </footer>
+</body>
+</html>
