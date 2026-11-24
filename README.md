@@ -2,30 +2,38 @@
 
 Página de presentación personal preparada para publicarse en **GitHub Pages**.
 
-## Contenido
+## Estructura
 
-- `index.html`: página principal con presentación, habilidades y enlaces de contacto.
+```text
+.
+├── index.html              # Página principal (oficial)
+├── alternativa/
+│   └── index.html          # Versión alternativa
+├── css/
+│   ├── main.css            # Estilos de la página principal
+│   └── alternativa.css     # Estilos de la versión alternativa
+├── js/
+│   ├── main.js             # Scripts de la página principal
+│   └── alternativa.js      # Scripts de la versión alternativa
+└── README.md
+```
 
 ## Publicar en GitHub Pages
 
-1. Sube los cambios al repositorio en GitHub:
+1. Sube los cambios al repositorio:
    ```bash
    git add .
-   git commit -m "Add GitHub Pages presentation"
+   git commit -m "Update site"
    git push origin main
    ```
 2. En GitHub, entra a **Settings > Pages**.
 3. En **Build and deployment**, selecciona:
    - **Source:** Deploy from a branch
-   - **Branch:** `main`
+   - **Branch:** `gh-pages` (o `main`)
    - **Folder:** `/ (root)`
-4. Guarda los cambios. Después de unos momentos, tu sitio quedará disponible en la URL que muestre GitHub Pages.
+4. Guarda los cambios.
 
-## Personalización
+## URLs esperadas
 
-Edita `index.html` para cambiar:
-
-- Nombre y descripción.
-- Ubicación.
-- Habilidades.
-- Enlaces de contacto y redes sociales.
+- Principal: `https://edavidvc.github.io/davidvelz/`
+- Alternativa: `https://edavidvc.github.io/davidvelz/alternativa/`
