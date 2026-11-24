@@ -3,172 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Presentación alternativa de David Velz - estilo paisaje y naturaleza.">
-  <title>David Velz | Alternativa</title>
+  <meta name="description" content="Presentación alternativa de David Velz con estilo tecnológico.">
+  <title>David Velz | Tendencias Tech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4f1ea;
-      --surface: rgba(255, 255, 255, 0.72);
-      --surface-solid: #fffdf8;
-      --ink: #1e2a24;
-      --muted: #5d6b63;
-      --line: rgba(30, 42, 36, 0.12);
-      --forest: #24443a;
-      --moss: #6b8f71;
-      --sand: #d8c3a5;
-      --sky: #dfeae4;
-      --radius: 24px;
-      --shadow: 0 24px 60px rgba(36, 68, 58, 0.1);
+      --bg: #f7f8fc;
+      --white: #ffffff;
+      --ink: #14162b;
+      --muted: #5f6783;
+      --line: rgba(20, 22, 43, 0.08);
+      --blue: #4f6df5;
+      --violet: #8b5cf6;
+      --cyan: #22d3ee;
+      --pink: #ec4899;
+      --grad: linear-gradient(135deg, #4f6df5 0%, #8b5cf6 52%, #22d3ee 100%);
+      --shadow: 0 20px 50px rgba(79, 109, 245, 0.12);
+      --radius: 28px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Manrope', system-ui, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
       color: var(--ink);
       background: var(--bg);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    img { max-width: 100%; display: block; }
     a { color: inherit; }
 
-    .hero {
-      position: relative;
-      min-height: 88vh;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      overflow: clip;
-      background: #dce8e0;
-    }
-
-    .hero-bg {
-      position: absolute;
+    .bg {
+      position: fixed;
       inset: 0;
+      z-index: 0;
+      pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(20,35,29,0.18) 0%, rgba(20,35,29,0.08) 35%, rgba(244,241,234,0.15) 70%, rgba(244,241,234,1) 100%),
-        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        radial-gradient(circle at 10% 10%, rgba(79,109,245,0.16), transparent 28%),
+        radial-gradient(circle at 90% 12%, rgba(139,92,246,0.14), transparent 25%),
+        radial-gradient(circle at 80% 85%, rgba(34,211,238,0.14), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fc 100%);
     }
 
-    .hero-bg::after {
+    .bg::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(244,241,234,0.72) 0%, rgba(244,241,234,0.28) 35%, rgba(244,241,234,0.05) 65%, rgba(244,241,234,0.35) 100%);
+      background-image:
+        linear-gradient(rgba(20,22,43,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,22,43,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 85%);
     }
 
-    .nav, .hero-content, .scroll-hint { position: relative; z-index: 1; }
-
-    .nav {
-      width: min(1180px, 100%);
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 2rem));
       margin: 0 auto;
+    }
+
+    header { padding: 1.5rem 0 0; }
+
+    nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 1rem 1.25rem;
+      padding: 0.9rem 1rem 0.9rem 1.25rem;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: 0 10px 30px rgba(20,22,43,0.04);
       border-radius: 999px;
-      background: rgba(255, 253, 248, 0.62);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.5);
-      box-shadow: 0 8px 30px rgba(30, 42, 36, 0.06);
     }
 
     .brand {
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: -0.03em;
-      text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.65rem;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
     }
 
-    .brand-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--forest);
-      box-shadow: 0 0 0 5px rgba(36,68,58,0.12);
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: var(--grad);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 0.85rem;
+      box-shadow: 0 8px 20px rgba(79,109,245,0.3);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
       list-style: none;
+      gap: 1.4rem;
     }
 
     .nav-links a {
       text-decoration: none;
-      font-size: 0.9rem;
+      color: var(--muted);
+      font-size: 0.92rem;
       font-weight: 600;
-      color: #34423b;
     }
+    .nav-links a:hover { color: var(--ink); }
 
-    .nav-links a:hover { color: var(--forest); }
-
-    .nav-back {
+    .nav-btn {
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 0.7rem 1rem;
+      padding: 0.75rem 1.15rem;
       border-radius: 999px;
-      color: var(--forest);
-      background: rgba(36,68,58,0.08);
-      white-space: nowrap;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--ink);
     }
 
-    .hero-content {
-      width: min(1180px, 100%);
-      margin: auto;
-      padding: 5rem 0 4rem;
+    .hero {
+      padding: 5.5rem 0 3rem;
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 2rem;
-      align-items: end;
-    }
-
-    .kicker {
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--forest);
-      margin-bottom: 1.25rem;
-      display: flex;
       align-items: center;
-      gap: 0.75rem;
     }
 
-    .kicker::before {
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(79,109,245,0.08);
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill::before {
       content: "";
-      width: 48px;
-      height: 1px;
-      background: rgba(36,68,58,0.5);
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 4px rgba(34,211,238,0.18);
     }
-
-    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      color: #18251f;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
       margin-bottom: 1.5rem;
-      max-width: 10ch;
+      max-width: 11ch;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--forest);
+    .gradient-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
       max-width: 58ch;
-      font-size: 1.02rem;
-      color: #3d4d45;
       margin-bottom: 2rem;
     }
 
@@ -178,164 +184,169 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.95rem 1.4rem;
-      border-radius: 999px;
+      gap: 0.55rem;
+      padding: 0.95rem 1.35rem;
+      border-radius: 14px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.9rem;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      font-size: 0.92rem;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn:hover { transform: translateY(-2px); }
 
-    .btn-primary {
-      background: var(--forest);
-      color: #f7f4ee;
-      box-shadow: 0 14px 30px rgba(36,68,58,0.22);
+    .btn-grad {
+      color: #fff;
+      background: var(--grad);
+      box-shadow: 0 14px 30px rgba(79,109,245,0.28);
     }
 
-    .btn-secondary {
-      background: rgba(255,253,248,0.55);
-      border: 1px solid rgba(30,42,36,0.12);
+    .btn-white {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(20,22,43,0.1);
       color: var(--ink);
-      backdrop-filter: blur(6px);
     }
 
-    .hero-card {
-      background: rgba(255, 253, 248, 0.7);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.65);
-      border-radius: 28px;
-      padding: 1.75rem;
+    .visual {
+      position: relative;
+      min-height: 480px;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .blob-a {
+      width: 340px; height: 340px;
+      top: 0; right: 20px;
+      background: radial-gradient(circle at 30% 30%, rgba(34,211,238,0.55), rgba(79,109,245,0.2) 60%, transparent 72%);
+    }
+
+    .blob-b {
+      width: 280px; height: 280px;
+      bottom: 30px; left: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(236,72,153,0.3), rgba(139,92,246,0.2) 60%, transparent 72%);
+    }
+
+    .profile-card {
+      position: absolute;
+      inset: 40px 20px 40px 40px;
+      background: rgba(255,255,255,0.66);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 36px;
+      padding: 2rem;
       box-shadow: var(--shadow);
-    }
-
-    .avatar-img {
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-      object-fit: cover;
-      border: 3px solid rgba(255,255,255,0.8);
-      box-shadow: 0 10px 24px rgba(36,68,58,0.18);
-      margin-bottom: 1rem;
-    }
-    .hero-card .label {
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .hero-card h2 {
-      font-size: 2rem;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
-
-    .meta {
-      display: grid;
-      gap: 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .meta-row {
       display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 0.9rem;
+      flex-direction: column;
     }
 
-    .meta-row span:first-child { color: var(--muted); }
-    .meta-row span:last-child { font-weight: 700; text-align: right; }
-
-    .scroll-hint {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      padding-bottom: 1.5rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #4d5e56;
-    }
-
-    .content {
-      width: min(1180px, calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 1rem 0 5rem;
-    }
-
-    .intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 4rem 0;
+    .profile-top {
+      display: flex;
       align-items: center;
-    }
-
-    .intro-image {
-      border-radius: 32px;
-      overflow: hidden;
-      min-height: 420px;
-      background: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      box-shadow: var(--shadow);
-    }
-
-    .section-kicker {
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--moss);
-      margin-bottom: 1rem;
-    }
-
-    .intro h2, .section-title {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
-    }
-
-    .intro p, .section-desc {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      max-width: 60ch;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
-      margin-top: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1.5rem;
+    }
+
+    .avatar {
+      width: 78px;
+      height: 78px;
+      border-radius: 24px;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 12px 24px rgba(79,109,245,0.18);
+    }
+
+    .profile-top h2 {
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+    }
+
+    .profile-top p { color: var(--muted); font-size: 0.93rem; font-weight: 500; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
     }
 
     .stat {
-      padding: 1.25rem 0;
-      border-top: 1px solid var(--line);
+      padding: 1rem;
+      border-radius: 20px;
+      background: rgba(247,248,252,0.8);
+      border: 1px solid rgba(20,22,43,0.05);
     }
 
-    .stat strong {
-      display: block;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--forest);
-      line-height: 1;
-      margin-bottom: 0.35rem;
+    .stat .k {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7b839f;
+      margin-bottom: 0.3rem;
     }
 
-    .stat span { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+    .stat .v {
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
 
-    .section { padding: 4rem 0; }
-    .section-header { margin-bottom: 2rem; }
-    .section-desc { margin-bottom: 0; }
+    .tech-bar {
+      margin-top: auto;
+      padding: 1rem 1.25rem;
+      border-radius: 20px;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .tech-bar span { font-size: 0.85rem; color: rgba(255,255,255,0.72); }
+    .tech-bar strong { font-size: 0.95rem; letter-spacing: -0.01em; }
+
+    .dots {
+      display: flex; gap: 6px;
+    }
+    .dots i {
+      width: 8px; height: 8px; border-radius: 50%; display: block;
+    }
+    .dots i:nth-child(1) { background: var(--cyan); }
+    .dots i:nth-child(2) { background: var(--blue); }
+    .dots i:nth-child(3) { background: var(--violet); }
+
+    section { padding: 4.5rem 0; }
+
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 2.5rem;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .section-head p { color: var(--muted); font-size: 1rem; }
 
     .cards {
       display: grid;
@@ -344,221 +355,322 @@
     }
 
     .card {
-      background: var(--surface-solid);
-      border: 1px solid rgba(30,42,36,0.08);
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.9);
       border-radius: var(--radius);
       padding: 2rem;
+      box-shadow: 0 4px 24px rgba(20,22,43,0.03);
       transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(36,68,58,0.12), rgba(107,143,113,0.12));
-      color: var(--forest);
-      display: grid;
-      place-items: center;
-      margin-bottom: 1.5rem;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
     }
 
+    .card-num {
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .c1 { background: linear-gradient(135deg, #4f6df5, #6a8cff); }
+    .c2 { background: linear-gradient(135deg, #8b5cf6, #b07cff); }
+    .c3 { background: linear-gradient(135deg, #22d3ee, #4f9cf5); }
+
     .card h3 {
-      font-size: 1.55rem;
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.65rem;
     }
 
     .card p { color: var(--muted); font-size: 0.95rem; }
 
-    .banner {
-      position: relative;
+    .skills-box {
+      background: #fff;
+      border: 1px solid rgba(20,22,43,0.06);
       border-radius: 32px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      box-shadow: 0 8px 30px rgba(20,22,43,0.03);
+    }
+
+    .skills-box h3 {
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+
+    .tag {
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #303a57;
+      background: var(--bg);
+      border: 1px solid rgba(20,22,43,0.06);
+    }
+
+    .tag.g {
+      background: rgba(79,109,245,0.08);
+      color: var(--blue);
+      border-color: rgba(79,109,245,0.12);
+    }
+
+    .cta {
+      padding: 2rem;
+      border-radius: 36px;
+      background: var(--ink);
+      color: #fff;
+      position: relative;
       overflow: hidden;
-      padding: 3rem;
-      min-height: 340px;
-      display: flex;
-      align-items: end;
-      background: #243d35;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
     }
 
-    .banner-bg {
+    .cta::before {
+      content: "";
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(24,41,34,0.8) 0%, rgba(24,41,34,0.45) 45%, rgba(24,41,34,0.2) 100%),
-        url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      width: 420px; height: 420px;
+      right: -120px; top: -220px;
+      background: radial-gradient(circle, rgba(139,92,246,0.55), transparent 68%);
+    }
+    .cta::after {
+      content: "";
+      position: absolute;
+      width: 320px; height: 320px;
+      left: 30%; bottom: -220px;
+      background: radial-gradient(circle, rgba(34,211,238,0.28), transparent 68%);
     }
 
-    .banner-content { position: relative; z-index: 1; max-width: 640px; color: #f4f1ea; }
-    .banner .section-kicker { color: #c8d8c0; }
-    .banner h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; margin-bottom: 1rem; }
-    .banner p { color: rgba(244,241,234,0.82); margin-bottom: 1.5rem; max-width: 56ch; }
-
-    .banner-links { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-
-    .btn-light {
-      background: #f4f1ea;
-      color: var(--forest);
+    .cta > * { position: relative; z-index: 1; }
+    .cta .eyebrow { color: #a5b4fc; }
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
     }
+    .cta p { color: rgba(255,255,255,0.72); max-width: 55ch; }
 
-    .btn-ghost {
-      color: #f4f1ea;
-      border: 1px solid rgba(244,241,234,0.3);
-      background: rgba(255,255,255,0.04);
+    .cta-links { display: flex; flex-direction: column; gap: 0.75rem; min-width: 270px; }
+    .cta-link {
+      display: flex; align-items: center; gap: 0.9rem;
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      text-decoration: none;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
     }
+    .cta-link:hover { background: rgba(255,255,255,0.1); }
+    .cta-link .ic {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(79,109,245,0.45), rgba(139,92,246,0.35));
+      flex: 0 0 40px;
+    }
+    .cta-link strong { display: block; font-size: 0.93rem; }
+    .cta-link small { color: rgba(255,255,255,0.6); font-size: 0.82rem; }
 
     footer {
-      width: min(1180px, calc(100% - 2rem));
-      margin: 0 auto;
       padding: 2rem 0 3rem;
-      border-top: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
       gap: 1rem;
       color: var(--muted);
       font-size: 0.9rem;
     }
-
-    footer a { color: var(--forest); font-weight: 700; text-decoration: none; }
+    footer a { color: var(--blue); text-decoration: none; font-weight: 700; }
 
     @media (max-width: 980px) {
-      .hero-content, .intro { grid-template-columns: 1fr; }
-      .hero-content { padding: 4rem 0 2rem; }
-      .hero-card { max-width: 520px; }
+      .hero { grid-template-columns: 1fr; padding-top: 4rem; }
+      .visual { min-height: 460px; max-width: 560px; width: 100%; }
       .cards { grid-template-columns: 1fr; }
-      .intro-image { min-height: 320px; }
+      .skills-box, .cta { grid-template-columns: 1fr; }
+      .cta-links { min-width: 0; }
     }
 
     @media (max-width: 720px) {
-      .nav { border-radius: 24px; flex-wrap: wrap; justify-content: center; }
-      .nav-links { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
-      .stats { grid-template-columns: 1fr; gap: 0; }
-      .banner { padding: 2rem; }
+      nav { border-radius: 24px; flex-wrap: wrap; justify-content: center; }
+      .nav-links { width: 100%; order: 3; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+      .profile-card { inset: 24px 0; }
+      .blob-a { right: -20px; width: 260px; height: 260px; }
+      .stat-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <header class="hero" id="inicio">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <nav class="nav">
-      <a class="brand" href="#inicio"><span class="brand-dot"></span>David Velz</a>
-      <ul class="nav-links">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#enfoque">Enfoque</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-      <a class="nav-back" href="../">Página principal</a>
-    </nav>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <header>
+      <nav>
+        <a class="brand" href="#inicio"><span class="brand-icon">DV</span>David Velz</a>
+        <ul class="nav-links">
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a class="nav-btn" href="../">Página principal</a>
+      </nav>
+    </header>
 
-    <div class="hero-content">
-      <div>
-        <p class="kicker">Presentación alternativa</p>
-        <h1>Mirando nuevos <em>horizontes</em>.</h1>
-        <p class="lead">
-          Soy David Velz, estudiante y entusiasta del desarrollo de software. Esta versión alternativa
-          de mi presentación toma inspiración en paisajes, fotografía aérea y un diseño limpio y natural.
-        </p>
-        <div class="actions">
-          <a class="btn btn-primary" href="https://github.com/EDavidVC" target="_blank" rel="noopener noreferrer">Explorar GitHub</a>
-          <a class="btn btn-secondary" href="https://www.facebook.com/devdavidvelz" target="_blank" rel="noopener noreferrer">Facebook</a>
-        </div>
-      </div>
-
-      <aside class="hero-card" aria-label="Información rápida">
-        <p class="label">Perfil</p>
-        <img class="avatar-img" src="https://avatars.githubusercontent.com/u/62119168?v=4" alt="Foto de perfil de David Velz en GitHub" width="72" height="72">
-        <h2>David Velz</h2>
-        <p>Desarrollador en formación, aprendiendo y construyendo proyectos digitales.</p>
-        <div class="meta">
-          <div class="meta-row"><span>Rol</span><span>Estudiante</span></div>
-          <div class="meta-row"><span>Interés</span><span>Desarrollo web</span></div>
-          <div class="meta-row"><span>GitHub</span><span>@EDavidVC</span></div>
-        </div>
-      </aside>
-    </div>
-
-    <div class="scroll-hint">Desplázate para conocer más</div>
-  </header>
-
-  <main class="content">
-    <section class="intro" id="sobre-mi">
-      <div class="intro-image" role="img" aria-label="Paisaje natural visto desde lo alto"></div>
-      <div>
-        <p class="section-kicker">Sobre mí</p>
-        <h2>Una vista clara hacia lo que quiero construir.</h2>
-        <p>
-          Me gusta aprender tecnología, experimentar con ideas y crear proyectos que se sientan simples,
-          útiles y bien diseñados. Cada proyecto es una oportunidad para mejorar.
-        </p>
-        <p>
-          Esta página es una alternativa visual dentro de mi sitio en GitHub Pages. Puedes usarla como
-          base para mostrar tu perfil, portafolio o presentación personal.
-        </p>
-        <div class="stats">
-          <div class="stat"><strong>01</strong><span>Aprendizaje</span></div>
-          <div class="stat"><strong>02</strong><span>Proyectos</span></div>
-          <div class="stat"><strong>03</strong><span>Crecimiento</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="enfoque">
-      <div class="section-header">
-        <p class="section-kicker">Enfoque</p>
-        <h2 class="section-title">Lo que me mueve.</h2>
-        <p class="section-desc">Un enfoque sencillo: aprender, crear y mejorar con cada experiencia.</p>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M7 16l4-8 3 6 2-3 3 5"/></svg>
-          </div>
-          <h3>Explorar</h3>
-          <p>Descubrir nuevas herramientas, lenguajes y formas de resolver problemas con creatividad.</p>
-        </article>
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8"/><path d="M7 8h6"/></svg>
-          </div>
-          <h3>Construir</h3>
-          <p>Convertir ideas en páginas, aplicaciones y proyectos que aporten valor y sean fáciles de usar.</p>
-        </article>
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          </div>
-          <h3>Evolucionar</h3>
-          <p>Mejorar constantemente mis habilidades, adoptar buenas prácticas y crecer como desarrollador.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="contacto">
-      <div class="banner">
-        <div class="banner-bg" aria-hidden="true"></div>
-        <div class="banner-content">
-          <p class="section-kicker">Contacto</p>
-          <h2>Conectemos y creemos algo nuevo.</h2>
-          <p>
-            Visita mis perfiles para conocer mis proyectos o ponerte en contacto. Esta tarjeta digital
-            puede crecer con tu portafolio, experiencia y nuevas ideas.
+    <main>
+      <section class="hero" id="inicio">
+        <div>
+          <p class="pill">Tecnología · 2026 · Presentación</p>
+          <h1>El futuro se <span class="gradient-text">construye</span> hoy.</h1>
+          <p class="lead">
+            Soy David Velz, estudiante y desarrollador en formación. Me interesa la tecnología, el diseño
+            web y la creación de proyectos digitales que aporten valor y se vean increíbles.
           </p>
-          <div class="banner-links">
-            <a class="btn btn-light" href="https://github.com/EDavidVC" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a class="btn btn-ghost" href="https://www.facebook.com/devdavidvelz" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <div class="actions">
+            <a class="btn btn-grad" href="https://github.com/EDavidVC" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
+            <a class="btn btn-white" href="https://www.facebook.com/devdavidvelz" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <p>© 2026 David Velz · Alternativa para GitHub Pages.</p>
-    <p><a href="../">Volver a la página principal</a></p>
-  </footer>
+        <div class="visual" aria-hidden="true">
+          <div class="blob blob-a"></div>
+          <div class="blob blob-b"></div>
+          <div class="profile-card">
+            <div class="profile-top">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/62119168?v=4" alt="Foto de perfil de David Velz en GitHub" width="78" height="78">
+              <div>
+                <h2>David Velz</h2>
+                <p>Desarrollador en formación</p>
+              </div>
+            </div>
+            <div class="stat-grid">
+              <div class="stat">
+                <p class="k">Enfoque</p>
+                <p class="v">Web & Software</p>
+              </div>
+              <div class="stat">
+                <p class="k">Estado</p>
+                <p class="v">Aprendiendo</p>
+              </div>
+              <div class="stat">
+                <p class="k">GitHub</p>
+                <p class="v">@EDavidVC</p>
+              </div>
+              <div class="stat">
+                <p class="k">Visión</p>
+                <p class="v">Crear y crecer</p>
+              </div>
+            </div>
+            <div class="tech-bar">
+              <div>
+                <span>Tendencia personal</span>
+                <div><strong>Innovación constante</strong></div>
+              </div>
+              <div class="dots"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre-mi">
+        <div class="section-head">
+          <p class="eyebrow">Sobre mí</p>
+          <h2>Explorando tendencias, creando proyectos.</h2>
+          <p>
+            Esta página alternativa presenta un estilo inspirado en tendencias tecnológicas: degradados,
+            composición limpia y una estética digital moderna.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-num c1">01</div>
+            <h3>Aprendizaje</h3>
+            <p>Me mantengo en constante aprendizaje, explorando herramientas y conceptos del desarrollo moderno.</p>
+          </article>
+          <article class="card">
+            <div class="card-num c2">02</div>
+            <h3>Desarrollo</h3>
+            <p>Construyo proyectos para practicar, mejorar mis habilidades y dar forma a ideas digitales.</p>
+          </article>
+          <article class="card">
+            <div class="card-num c3">03</div>
+            <h3>Futuro</h3>
+            <p>Busco crecer profesionalmente y participar en proyectos que combinen tecnología y creatividad.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="habilidades">
+        <div class="section-head">
+          <p class="eyebrow">Habilidades</p>
+          <h2>Stack en evolución.</h2>
+          <p>Tecnologías y áreas que estoy desarrollando. Puedes editar esta sección con tu stack real.</p>
+        </div>
+
+        <div class="skills-box">
+          <div>
+            <h3>Tecnologías</h3>
+            <div class="tags">
+              <span class="tag g">HTML</span>
+              <span class="tag g">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Java</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+          <div>
+            <h3>Áreas de interés</h3>
+            <div class="tags">
+              <span class="tag">Diseño web</span>
+              <span class="tag">UI moderna</span>
+              <span class="tag">Automatización</span>
+              <span class="tag">Aprendizaje continuo</span>
+              <span class="tag">Proyectos personales</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="cta">
+          <div>
+            <p class="eyebrow">Contacto</p>
+            <h2>Conectemos en el mundo digital.</h2>
+            <p>Encuéntrame en mis perfiles y descubre los proyectos en los que estoy trabajando.</p>
+          </div>
+          <div class="cta-links">
+            <a class="cta-link" href="https://github.com/EDavidVC" target="_blank" rel="noopener noreferrer">
+              <span class="ic" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.73-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 2.89-.39c.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.54-.01 2.79-.01 3.17 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              </span>
+              <span><strong>GitHub</strong><small>github.com/EDavidVC</small></span>
+            </a>
+            <a class="cta-link" href="https://www.facebook.com/devdavidvelz" target="_blank" rel="noopener noreferrer">
+              <span class="ic" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+              </span>
+              <span><strong>Facebook</strong><small>facebook.com/devdavidvelz</small></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 David Velz · Alternativa tecnológica.</p>
+      <p><a href="../">Volver a la página principal</a></p>
+    </footer>
+  </div>
 </body>
 </html>
