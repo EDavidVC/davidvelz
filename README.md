@@ -7,6 +7,8 @@ Página de presentación personal preparada para publicarse en **GitHub Pages**.
 ```text
 .
 ├── index.html              # Página principal (oficial)
+├── 404.html                # Página de error para rutas no encontradas
+├── .nojekyll               # Evita el procesamiento de Jekyll en GitHub Pages
 ├── alternativa/
 │   └── index.html          # Versión alternativa
 ├── css/
